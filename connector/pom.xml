@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>smartservers-parent</artifactId>
+        <groupId>net.smartservers</groupId>
+        <version>parent</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>smartservers-connector</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <id>add-version</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>${project.basedir}/src/main/java/net/smartservers/connector/SmartConnector.java</include>
+                            </includes>
+                            <replacements>
+                                <replacement>
+                                    <token>String VERSION = ".*"</token>
+                                    <value>String VERSION = "${project.version} (" + GIT_VERSION + ")"</value>
+                                </replacement>
+                                <replacement>
+                                    <token>String GIT_VERSION = ".*"</token>
+                                    <!--suppress UnresolvedMavenProperty -->
+                                    <value>String GIT_VERSION = "git-${git.branch}-${git.commit.id.master}"</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>remove-version</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>${project.basedir}/src/main/java/net/smartservers/connector/SmartConnector.java</include>
+                            </includes>
+                            <replacements>
+                                <replacement>
+                                    <token>String VERSION = ".*"</token>
+                                    <value>String VERSION = "DEV"</value>
+                                </replacement>
+                                <replacement>
+                                    <token>String GIT_VERSION = ".*"</token>
+                                    <value>String GIT_VERSION = "DEV"</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
