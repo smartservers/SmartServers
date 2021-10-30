@@ -1,5 +1,7 @@
 package net.smartservers.connector;
 
+import net.smartservers.common.SmartPlatformType;
+
 public class SmartConnector {
     
     public static final String NAME = "SmartServices";
@@ -8,7 +10,11 @@ public class SmartConnector {
 
     private static SmartConnector instance;
 
+    private final SmartPlatformType platformType;
 
+    public SmartConnector(SmartPlatformType platformType) {
+        this.platformType = platformType;
+    }
 
     public static SmartConnector getInstance() {
         return instance;
