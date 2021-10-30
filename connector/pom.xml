@@ -5,11 +5,11 @@
     <parent>
         <artifactId>smartservers-parent</artifactId>
         <groupId>net.smartservers</groupId>
-        <version>parent</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>smartservers-connector</artifactId>
+    <artifactId>connector</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -38,11 +38,7 @@
                                     <token>String VERSION = ".*"</token>
                                     <value>String VERSION = "${project.version} (" + GIT_VERSION + ")"</value>
                                 </replacement>
-                                <replacement>
-                                    <token>String GIT_VERSION = ".*"</token>
-                                    <!--suppress UnresolvedMavenProperty -->
-                                    <value>String GIT_VERSION = "git-${git.branch}-${git.commit.id.master}"</value>
-                                </replacement>
+
                             </replacements>
                         </configuration>
                     </execution>

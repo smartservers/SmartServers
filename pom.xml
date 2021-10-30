@@ -1,42 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>net.smartservers</groupId>
-    <artifactId>smartservers-parent</artifactId>
-    <version>parent</version>
-    <packaging>pom</packaging>
-    <name>SmartServers</name>
-    <description>SmartServers is the next generation of Java minecraft server managers.</description>
-    <url>https://ci.twidev.net</url>
 
-    <properties>
-        <outputName>SmartServers</outputName>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
-    <organization>
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>net.smartservers</groupId>
+        <artifactId>smartservers-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <packaging>pom</packaging>
         <name>SmartServers</name>
-        <url>https://github.com/smartservers/SmartServers/blob/master/pom.xml</url>
-    </organization>
+        <description>SmartServers is the next generation of Java minecraft server managers.</description>
+        <url>https://ci.twidev.net</url>
 
-    <modules>
-        <module>common</module>
-        <module>connector</module>
-        <module>plugins/spigot</module>
-        <module>plugins/bungeecord</module>
-    </modules>
+        <properties>
+            <outputName>SmartServers</outputName>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <maven.compiler.source>1.8</maven.compiler.source>
+            <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+        <modules>
+            <module>connector</module>
+            <module>common</module>
+        </modules>
+
+        <repositories>
+            <!-- Remove once maven-shade-plugin gets a stable release that supports Java 16 -->
+            <repository>
+                <id>apache.snapshots</id>
+                <url>https://repository.apache.org/snapshots/</url>
+            </repository>
+            <repository>
+                <id>jitpack.io</id>
+                <url>https://jitpack.io</url>
+            </repository>
+        </repositories>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.22</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+
 </project>
