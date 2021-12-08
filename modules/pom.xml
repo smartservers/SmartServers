@@ -5,11 +5,12 @@
     <parent>
         <artifactId>smartservers-parent</artifactId>
         <groupId>net.smartservers</groupId>
-        <version>parent</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
-    <artifactId>smartservers-bungee</artifactId>
+    <artifactId>modules</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

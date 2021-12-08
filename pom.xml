@@ -20,8 +20,10 @@
         </properties>
 
         <modules>
-            <module>connector</module>
             <module>common</module>
+            <module>connector</module>
+            <module>platforms</module>
+            <module>modules</module>
         </modules>
 
         <repositories>
