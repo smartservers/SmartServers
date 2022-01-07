@@ -7,3 +7,5 @@
 📚  SmartServers is the next generation of Java minecraft server managers
 
 SmartServers is an open collaboration project by [TwiDev](https://github.com/TwiDev).
+
+⌛ Soon
