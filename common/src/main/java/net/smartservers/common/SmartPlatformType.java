@@ -11,7 +11,8 @@ public enum SmartPlatformType {
     SPIGOT("Spigot"),
     SPONGE("Sponge"),
     STANDALONE("Standalone"),
-    VELOCITY("Velocity");
+    VELOCITY("Velocity"),
+    NONE("none");
 
     private final String platformName;
 }
